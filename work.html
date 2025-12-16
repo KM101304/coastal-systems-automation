@@ -9,6 +9,9 @@
 </head>
 <body>
   <div class="container">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+
     <div class="nav">
       <div class="brand">
         <div class="name">Coastal Systems Automation</div>
@@ -21,45 +24,50 @@
       </div>
     </div>
 
-    <div class="hero">
+    <div class="hero reveal">
+      <div class="gridOverlay"></div>
+      <div class="heroGlow"></div>
+
       <p class="kicker">Examples</p>
-      <h1>Work that feels simple to use.</h1>
+      <h1>Work that feels effortless to run.</h1>
       <p class="sub">
-        These are examples of workflow automation projects. Client work can be anonymized. Screenshots can be added as you collect them.
+        These are example automation systems. Client work can be anonymized. Add screenshots as you collect them.
       </p>
       <div class="actions">
-        <a class="btn primary" href="mailto:kmatsuura04@gmail.com?subject=Work%20example%20request">Ask for a relevant example</a>
+        <a class="btn primary" href="mailto:kmatsuura04@gmail.com?subject=Automation%20pilot">Request a pilot</a>
         <a class="btn secondary" href="index.html">Back home</a>
       </div>
+
+      <div class="shimmer"></div>
     </div>
 
     <div class="section">
-      <div class="workItem">
+      <div class="workItem reveal">
         <div class="title">Daily finance sheet automation</div>
         <p class="desc">Automates daily updates from structured inputs and flags anomalies for review. Built to be low maintenance.</p>
       </div>
 
-      <div class="workItem">
+      <div class="workItem reveal">
         <div class="title">Email to spreadsheet intake</div>
         <p class="desc">Extracts key fields from inbound emails and logs them into a clean table with consistent formatting.</p>
       </div>
 
-      <div class="workItem">
+      <div class="workItem reveal">
         <div class="title">Inventory reorder alerts</div>
         <p class="desc">Tracks thresholds and sends reorder notifications with simple logic that teams can understand.</p>
       </div>
 
-      <div class="workItem">
+      <div class="workItem reveal">
         <div class="title">FinView dashboard system</div>
         <p class="desc">Production-style pipeline that ingests public web data, classifies sentiment, and surfaces real-time signals.</p>
       </div>
     </div>
 
-    <div class="card section">
-      <h2>Want this for your team?</h2>
-      <p>Send one workflow and we will suggest a pilot with clear scope, timeline, and fixed pricing.</p>
+    <div class="card section reveal">
+      <h2>Want a relevant example?</h2>
+      <p>Tell us your industry and workflow. We will reply with a pilot idea and the most similar example we have.</p>
       <div class="actions" style="margin-top:12px;">
-        <a class="btn primary" href="mailto:kmatsuura04@gmail.com?subject=Automation%20pilot">Request a pilot</a>
+        <a class="btn primary" href="mailto:kmatsuura04@gmail.com?subject=Relevant%20automation%20example">Ask for an example</a>
         <a class="btn secondary" href="about.html">Meet the team</a>
       </div>
     </div>
@@ -76,6 +84,12 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const els = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+    }, { threshold: 0.12 });
+    els.forEach(el => obs.observe(el));
   </script>
 </body>
 </html>
