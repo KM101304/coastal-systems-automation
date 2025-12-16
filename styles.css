@@ -29,6 +29,10 @@ body{
   background: linear-gradient(180deg, var(--bg0) 0%, var(--bg1) 100%);
 }
 
+/* Defensive layout hardening for iOS Safari */
+*, *::before, *::after{min-width:0}
+.container, .hero, .card, .workItem{max-width:100%; overflow-x:clip}
+
 /* Global hardening to prevent horizontal scroll on mobile */
 img, svg, video, canvas{max-width:100%; height:auto}
 a{color:inherit;text-decoration:none}
@@ -108,13 +112,28 @@ a:hover{opacity:.96}
 /* Background wave that visually ties the whole site together */
 .bgWave{
   position:absolute;
-  left:50%;
+  left:0;
+  right:0;
   bottom:-2px;
-  transform: translateX(-50%);
-  width:min(1400px, 140%);
+  width:100%;
+  max-width:100%;
   opacity:.55;
   filter: drop-shadow(0 26px 40px rgba(0,0,0,.35));
 }
+
+/* Brand logo */
+.brand{display:flex; align-items:center; gap:10px; min-width:0}
+.logo{
+  height: 26px;
+  width: auto;
+  max-width: 132px;
+  display:block;
+  object-fit:contain;
+  filter: drop-shadow(0 6px 18px rgba(14,165,233,.20));
+}
+.brandText{display:flex; flex-direction:column; gap:2px; min-width:0}
+.brandText .name{font-weight:850; letter-spacing:-.35px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.brandText .tag{font-size:13px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 
 /* Layout */
 .container{
@@ -134,26 +153,7 @@ a:hover{opacity:.96}
   padding: 10px 0 18px;
 }
 
-.brand{
-  display:flex;
-  flex-direction:column;
-  gap:2px;
-  min-width: 0;
-}
-.brand .name{
-  font-weight:850;
-  letter-spacing:-.35px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-.brand .tag{
-  font-size:13px;
-  color:var(--muted);
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
+/* Old text-only brand styles replaced by logo + optional wordmark */
 
 .navlinks{
   display:flex;
@@ -465,6 +465,8 @@ h1{
   .sub{margin-bottom: 16px;}
   .nav{gap:10px;}
   .navlinks a{padding:8px 10px;}
+  .logo{height:22px; max-width:110px;}
+  .brandText .tag{display:none;}
 }
 
 /* Reduced motion */
