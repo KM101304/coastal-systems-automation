@@ -124,9 +124,9 @@ a:hover{opacity:.96}
 /* Brand logo */
 .brand{display:flex; align-items:center; gap:10px; min-width:0}
 .logo{
-  height: 26px;
+  height: 36px;
   width: auto;
-  max-width: 132px;
+  max-width: 142px;
   display:block;
   object-fit:contain;
   filter: drop-shadow(0 6px 18px rgba(14,165,233,.20));
