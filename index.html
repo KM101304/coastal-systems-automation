@@ -3,22 +3,46 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#06111f" />
   <title>Coastal Systems Automation</title>
   <meta name="description" content="Coastal-blue automation studio for small businesses in Vancouver and the North Shore." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container">
+  <div class="bgSystem" aria-hidden="true">
+    <div class="bgGrid"></div>
+    <div class="bgNoise"></div>
     <div class="orb one"></div>
     <div class="orb two"></div>
     <div class="orb three"></div>
 
+    <svg class="bgWave" viewBox="0 0 1440 140" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <defs>
+        <linearGradient id="bgWaveGrad" x1="0" x2="1">
+          <stop offset="0%" stop-color="#0369a1" stop-opacity="0.55"/>
+          <stop offset="50%" stop-color="#0ea5e9" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.55"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#bgWaveGrad)" fill-opacity="0.55"
+        d="M0,92 C180,58 360,64 540,82 C720,100 900,132 1080,112 C1260,92 1350,44 1440,64 L1440,140 L0,140 Z">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite"
+          values="
+            M0,92 C180,58 360,64 540,82 C720,100 900,132 1080,112 C1260,92 1350,44 1440,64 L1440,140 L0,140 Z;
+            M0,86 C180,66 360,54 540,78 C720,102 900,140 1080,118 C1260,96 1350,52 1440,70 L1440,140 L0,140 Z;
+            M0,92 C180,58 360,64 540,82 C720,100 900,132 1080,112 C1260,92 1350,44 1440,64 L1440,140 L0,140 Z
+          " />
+      </path>
+    </svg>
+  </div>
+
+  <div class="container">
     <div class="nav">
       <div class="brand">
         <div class="name">Coastal Systems Automation</div>
         <div class="tag">Coastal-blue workflow automation for North Shore SMBs</div>
       </div>
-      <div class="navlinks">
+      <div class="navlinks" role="navigation" aria-label="Primary">
         <a class="active" href="index.html">Home</a>
         <a href="work.html">Work</a>
         <a href="about.html">About</a>
@@ -54,7 +78,6 @@
 
       <div class="shimmer"></div>
 
-      <!-- coastal wave graphic -->
       <svg class="wave" viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <linearGradient id="waveGrad" x1="0" x2="1">
@@ -138,11 +161,10 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // scroll reveal
     const els = document.querySelectorAll('.reveal');
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if(e.isIntersecting) e.target.classList.add('show');
+        if (e.isIntersecting) e.target.classList.add('show');
       });
     }, { threshold: 0.12 });
 
