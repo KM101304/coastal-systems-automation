@@ -20,9 +20,15 @@
 }
 
 *{box-sizing:border-box}
+
+html{
+  background-color: #030914;
+}
+
 html,body{height:100%; width:100%; max-width:100%; overflow-x:hidden}
 body{
   margin:0;
+  background-color: #030914;
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
   color:var(--text);
   line-height:1.6;
@@ -40,15 +46,20 @@ a:hover{opacity:.96}
 
 /* Background system */
 .bgSystem{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  overflow:hidden;
-  pointer-events:none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
   background:
     radial-gradient(1200px 700px at 15% 0%, rgba(56,189,248,.20), transparent 55%),
     radial-gradient(900px 500px at 90% 10%, rgba(29,78,216,.20), transparent 52%),
     radial-gradient(900px 500px at 50% 100%, rgba(34,211,238,.14), transparent 60%);
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
 }
 
 .bgGrid{
@@ -75,31 +86,34 @@ a:hover{opacity:.96}
 
 /* Orbs live in the fixed bg layer so they never affect layout width */
 .orb{
-  position:absolute;
+  position: absolute;
   width: clamp(260px, 38vw, 520px);
   height: clamp(260px, 38vw, 520px);
   border-radius: 999px;
-  filter: blur(42px);
-  opacity: .34;
-  transform: translate3d(0,0,0);
-  animation: float 12s ease-in-out infinite;
+  opacity: .30;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   will-change: transform;
+  animation: float 12s ease-in-out infinite;
+  filter: none;
 }
 .orb.one{
   left: -10%;
   top: -8%;
-  background: radial-gradient(circle at 30% 30%, rgba(56,189,248,.95), rgba(56,189,248,0) 58%);
+  background: radial-gradient(circle at 30% 30%, rgba(56,189,248,.55), rgba(56,189,248,0) 70%);
 }
 .orb.two{
   right: -14%;
   top: 6%;
-  background: radial-gradient(circle at 30% 30%, rgba(29,78,216,.95), rgba(29,78,216,0) 58%);
+  background: radial-gradient(circle at 30% 30%, rgba(29,78,216,.55), rgba(29,78,216,0) 70%);
   animation-duration: 14s;
 }
 .orb.three{
   left: 20%;
   bottom: -18%;
-  background: radial-gradient(circle at 30% 30%, rgba(34,211,238,.92), rgba(34,211,238,0) 60%);
+  background: radial-gradient(circle at 30% 30%, rgba(34,211,238,.50), rgba(34,211,238,0) 72%);
   animation-duration: 15s;
 }
 
