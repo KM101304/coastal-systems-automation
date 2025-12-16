@@ -51,15 +51,17 @@ a:hover{opacity:.96}
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
+
   background:
-    radial-gradient(1200px 700px at 15% 0%, rgba(56,189,248,.20), transparent 55%),
-    radial-gradient(900px 500px at 90% 10%, rgba(29,78,216,.20), transparent 52%),
-    radial-gradient(900px 500px at 50% 100%, rgba(34,211,238,.14), transparent 60%);
+    radial-gradient(1200px 700px at 15% 0%, rgba(56,189,248,.22), transparent 55%),
+    radial-gradient(900px 520px at 90% 10%, rgba(29,78,216,.22), transparent 54%),
+    radial-gradient(900px 540px at 50% 100%, rgba(34,211,238,.16), transparent 60%),
+    linear-gradient(180deg, #030914 0%, #06111f 100%);
+
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  will-change: transform;
 }
 
 .bgGrid{
@@ -86,34 +88,45 @@ a:hover{opacity:.96}
 
 /* Orbs live in the fixed bg layer so they never affect layout width */
 .orb{
-  position: absolute;
-  width: clamp(260px, 38vw, 520px);
-  height: clamp(260px, 38vw, 520px);
+  position:absolute;
+  width: clamp(320px, 42vw, 620px);
+  height: clamp(320px, 42vw, 620px);
   border-radius: 999px;
-  opacity: .30;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+  opacity: .55;
+  pointer-events:none;
+
+  background:
+    radial-gradient(circle at 30% 30%, rgba(56,189,248,.55), rgba(56,189,248,0) 62%),
+    radial-gradient(circle at 60% 60%, rgba(34,211,238,.20), rgba(34,211,238,0) 68%);
+
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
   will-change: transform;
   animation: float 12s ease-in-out infinite;
-  filter: none;
 }
+
 .orb.one{
-  left: -10%;
-  top: -8%;
-  background: radial-gradient(circle at 30% 30%, rgba(56,189,248,.55), rgba(56,189,248,0) 70%);
+  left: -12%;
+  top: -10%;
 }
+
 .orb.two{
-  right: -14%;
-  top: 6%;
-  background: radial-gradient(circle at 30% 30%, rgba(29,78,216,.55), rgba(29,78,216,0) 70%);
+  right: -16%;
+  top: 4%;
+  opacity: .50;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(29,78,216,.55), rgba(29,78,216,0) 62%),
+    radial-gradient(circle at 60% 60%, rgba(56,189,248,.22), rgba(56,189,248,0) 68%);
   animation-duration: 14s;
 }
+
 .orb.three{
-  left: 20%;
-  bottom: -18%;
-  background: radial-gradient(circle at 30% 30%, rgba(34,211,238,.50), rgba(34,211,238,0) 72%);
+  left: 18%;
+  bottom: -22%;
+  opacity: .48;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(34,211,238,.52), rgba(34,211,238,0) 64%),
+    radial-gradient(circle at 60% 60%, rgba(56,189,248,.18), rgba(56,189,248,0) 70%);
   animation-duration: 15s;
 }
 
